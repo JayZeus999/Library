@@ -53,8 +53,16 @@ const book3 = addBookToLibrary("The Method", "Archimedes", "40+ pages", "Skimmed
 
 const book4 = addBookToLibrary("Romeo & Juliet", "Shakespeare", "30+ pages", "Read");
 
-const book5 = addBookToLibrary("Can't Hurt Me", "David Goggins", "60 pages", "Half-read");
+const book5 = addBookToLibrary("Can't Hurt Me", "David Goggins", "100+ pages", "Half-read");
 
 const book6 = addBookToLibrary("Principia Mathematica", "Isaac Newton", "200+ pages", "Skimmed");
 
 const book7 = addBookToLibrary("The Beginning of Infinity", "David Deustch", "200+ pages", "Read");
+
+
+const newButton = document.querySelector("#new-book");
+const form = document.querySelector("#book-form");
+
+newButton.addEventListener("click", () => {
+    form.classList.remove("hidden");
+})

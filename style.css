@@ -21,3 +21,8 @@ body {
 .card p {
     margin: 4px 0;
 }
+
+.hidden {
+    display: none;
+}
+
