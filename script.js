@@ -62,7 +62,27 @@ const book7 = addBookToLibrary("The Beginning of Infinity", "David Deustch", "20
 
 const newButton = document.querySelector("#new-book");
 const form = document.querySelector("#book-form");
+const cancelBtn = document.querySelector("#cancel");
 
 newButton.addEventListener("click", () => {
     form.classList.remove("hidden");
+});
+
+cancelBtn.addEventListener("click", () => {
+    form.classList.add("hidden");
+    form.reset();
+});
+
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").checked ? "Read" : "Not read"
+
+    addBookToLibrary(title, author, pages, read);
+    form.reset;
+    form.classList.add(".hidden");
 })
