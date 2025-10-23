@@ -6,6 +6,7 @@ function Book(title, author, pages, status) {
         throw Error("You must use new operator")
     }
 
+    this.id = crypto.randomUUID();
     this.book = title;
     this.author = author;
     this.size = pages;
@@ -21,10 +22,14 @@ function addBookToLibrary(title, author, pages, status) {
     return newBook;
 }
 
-const book1 = addBookToLibrary("Macbeth", "Shakespeare", "60 pages", "read");
+const book1 = addBookToLibrary("Macbeth", "Shakespeare", "60 pages", "Read");
 console.log(book1.info());
 console.log(myLibrary);
 
-// const book1 = new Book("Macbeth", "Shakespeare", "60 pages", "read");
-// console.log(book1.info());
-// this.book1.push = myLibrary;
+const book2 = addBookToLibrary("Naruto", "Masashi Kishimoto", "1000+ pages", "Half-read");
+console.log(book2.info());
+console.log(myLibrary);
+
+const book3 = addBookToLibrary("The Method", "Archimedes", "40+ pages", "Skimmed");
+console.log(book3.info());
+console.log(myLibrary);
