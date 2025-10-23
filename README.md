@@ -1,1 +1,1 @@
-# Library
+A Library built to display, add or remove books from a page.
