@@ -21,7 +21,9 @@ function addBookToLibrary(title, author, pages, status) {
     return newBook;
 }
 
-const book1 = addBookToLibrary()
+const book1 = addBookToLibrary("Macbeth", "Shakespeare", "60 pages", "read");
+console.log(book1.info());
+console.log(myLibrary);
 
 // const book1 = new Book("Macbeth", "Shakespeare", "60 pages", "read");
 // console.log(book1.info());
