@@ -7,12 +7,12 @@ function Book(title, author, pages, status) {
     }
 
     this.id = crypto.randomUUID();
-    this.book = title;
+    this.bookname = title;
     this.author = author;
     this.size = pages;
     this.read = status;
     this.info = function () {
-        return ` ${this.book} by ${this.author}, ${this.size}, ${this.read}`
+        return ` ${this.bookname} by ${this.author}, ${this.size}, ${this.read}`
     };
 };
 
@@ -30,13 +30,13 @@ function displayLibrary() {
 
     myLibrary.forEach((book) => {
         const card = document.createElement("div");
-        card.classList.add(".card");
+        card.classList.add("card");
 
         card.innerHTML = `
-        <h3>${book.title}<h3>
+        <h3>${book.bookname}</h3>
         <p><strong>Author:</strong> ${book.author}</p>
-        <p><strong>Pages:</strong> ${book.pages}</p>
-        <p><strong>Status:</strong> ${book.status}</p>
+        <p><strong>Pages:</strong> ${book.size}</p>
+        <p><strong>Status:</strong> ${book.read}</p>
         `;
 
         container.appendChild(card);
