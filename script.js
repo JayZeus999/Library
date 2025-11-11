@@ -1,33 +1,34 @@
 
 const myLibrary = [];
 
-function Book(title, author, pages, status) {
-    if (!new.target) {
-        throw Error("You must use new operator")
+class Book {
+    constructor(title, author, pages, status) {
+
+        this.id = crypto.randomUUID();
+        this.bookname = title;
+        this.author = author;
+        this.size = pages;
+        this.read = status;
     }
 
-    this.id = crypto.randomUUID();
-    this.bookname = title;
-    this.author = author;
-    this.size = pages;
-    this.read = status;
-    this.info = function () {
+    info() {
         return ` ${this.bookname} by ${this.author}, ${this.size}, ${this.read}`
     };
-};
 
 
-Book.prototype.toggleRead = function () {
-    if (this.read === "Read") {
-        this.read = "Not Read";
-    } else if (this.read === "Not Read") {
-        this.read = "Half-read";
-    } else if (this.read === "Half-read") {
-        this.read = "Skimmed";
-    } else {
-        this.read = "Read";
+    toggleRead() {
+        if (this.read === "Read") {
+            this.read = "Not Read";
+        } else if (this.read === "Not Read") {
+            this.read = "Half-read";
+        } else if (this.read === "Half-read") {
+            this.read = "Skimmed";
+        } else {
+            this.read = "Read";
+        }
     }
 };
+
 
 function addBookToLibrary(title, author, pages, status) {
     const newBook = new Book(title, author, pages, status);
@@ -124,3 +125,4 @@ form.addEventListener("submit", (e) => {
     form.reset();
     form.classList.add(".hidden");
 });
+
