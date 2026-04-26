@@ -116,9 +116,33 @@ cancelBtn.addEventListener("click", () => {
     form.reset();
 });
 
+function handleValidation() {
+    titleInput.setCustomValidity("");
+    authorInput.setCustomValidity("");
+    pagesInput.setCustomValidity("");
+
+    if (titleInput.value.trim() === "") {
+        titleInput.setCustomValidity("The title must be filled!");
+    }
+
+    if (authorInput.value.trim() === "") {
+        authorInput.setCustomValidity("The author name must be filled!");
+    }
+
+    if (pagesInput.value.trim() === "") {
+        pagesInput.setCustomValidity("Please enter number of pages!");
+    }
+}
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    handleValidation();
+
+    if (!form.checkValidity()) {
+        form.reportValidity(); 
+        return;
+    }
 
     const title = titleInput.value;
     const author = authorInput.value;
@@ -127,6 +151,6 @@ form.addEventListener("submit", (e) => {
 
     addBookToLibrary(title, author, pages, read);
     form.reset();
-    form.classList.add(".hidden");
+    form.classList.add("hidden");
 });
 
