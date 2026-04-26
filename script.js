@@ -98,6 +98,10 @@ const book6 = addBookToLibrary("Principia Mathematica", "Isaac Newton", "200+ pa
 
 const book7 = addBookToLibrary("The Beginning of Infinity", "David Deustch", "200+ pages", "Read");
 
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const readInput = document.querySelector("#read");
 
 const newButton = document.querySelector("#new-book");
 const form = document.querySelector("#book-form");
@@ -116,10 +120,10 @@ cancelBtn.addEventListener("click", () => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector("#read").checked ? "Read" : "Not read"
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pages = pagesInput.value;
+    const read = readInput.checked ? "Read" : "Not read"
 
     addBookToLibrary(title, author, pages, read);
     form.reset();
